@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Crop & Irrigation Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0099cc 30%, #33ccff 100%);
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+        .main-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .neon-button {
+            background: linear-gradient(90deg, #00ffcc, #0066ff);
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+            transition: all 0.3s ease-in-out;
+        }
+        .neon-button:hover {
+            box-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff;
+            transform: scale(1.05);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+        #prediction-results {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 16px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto main-container p-8">
+            <h1 class="text-4xl font-bold text-blue-700 mb-6 text-center">
+                6-Month Crop Prediction & Irrigation Planner
+            </h1>
+
+            <!-- Location and Crop Selection -->
+            <div class="mb-6">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Location</label>
+                        <input 
+                            type="text" 
+                            id="location-input" 
+                            placeholder="Enter your district/region" 
+                            class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Select Crop</label>
+                        <select 
+                            id="crop-select" 
+                            class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                            <option value="">Select Crop</option>
+                            <option value="wheat">Wheat</option>
+                            <option value="rice">Rice</option>
+                            <option value="maize">Maize</option>
+                            <option value="cotton">Cotton</option>
+                            <option value="sugarcane">Sugarcane</option>
+                        </select>
+                    </div>
+                </div>
+                <button 
+                    id="predict-btn" 
+                    class="w-full mt-4 neon-button py-3 rounded-md"
+                >
+                    Generate 6-Month Prediction
+                </button>
+            </div>
+
+            <!-- Prediction Results Container -->
+            <div id="prediction-results" class="hidden">
+                <!-- Weather Forecast Section -->
+                <div class="mb-6">
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-700">
+                        <i class="fas fa-cloud-sun mr-2"></i>6-Month Weather Forecast
+                    </h2>
+                    <div id="weather-forecast" class="grid md:grid-cols-6 gap-3">
+                        <!-- Weather data will be dynamically populated -->
+                    </div>
+                </div>
+
+                <!-- Irrigation Planning Section -->
+                <div class="mb-6">
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-700">
+                        <i class="fas fa-tint mr-2"></i>Irrigation Recommendations
+                    </h2>
+                    <div id="irrigation-plan" class="card">
+                        <!-- Irrigation recommendations will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Crop Growth Prediction -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-700">
+                        <i class="fas fa-chart-line mr-2"></i>Crop Growth Prediction
+                    </h2>
+                    <div id="crop-growth-prediction" class="grid md:grid-cols-2 gap-4">
+                        <!-- Crop growth stages and predictions -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // The JavaScript remains the same as in the previous version
+        document.addEventListener('DOMContentLoaded', () => {
+            const predictBtn = document.getElementById('predict-btn');
+            const predictionResults = document.getElementById('prediction-results');
+            const weatherForecast = document.getElementById('weather-forecast');
+            const irrigationPlan = document.getElementById('irrigation-plan');
+            const cropGrowthPrediction = document.getElementById('crop-growth-prediction');
+
+            // Comprehensive prediction logic
+            function generatePrediction(location, crop) {
+                console.log("Generating prediction for location:", location, "and crop:", crop);
+
+                // Simulated data - would be replaced by real agricultural and weather APIs
+                const monthlyWeather = [
+                    { month: 'January', avgTemp: 18, rainfall: 20, humidity: 45 },
+                    { month: 'February', avgTemp: 20, rainfall: 25, humidity: 50 },
+                    { month: 'March', avgTemp: 24, rainfall: 40, humidity: 55 },
+                    { month: 'April', avgTemp: 28, rainfall: 60, humidity: 60 },
+                    { month: 'May', avgTemp: 32, rainfall: 30, humidity: 50 },
+                    { month: 'June', avgTemp: 35, rainfall: 20, humidity: 40 }
+                ];
+
+                const cropSpecificData = {
+                    wheat: {
+                        growthStages: [
+                            { stage: 'Germination', duration: '15-20 days', waterNeed: 'Low' },
+                            { stage: 'Tillering', duration: '30-35 days', waterNeed: 'Moderate' },
+                            { stage: 'Flowering', duration: '20-25 days', waterNeed: 'High' },
+                            { stage: 'Grain Fill', duration: '30-35 days', waterNeed: 'Critical' }
+                        ],
+                        expectedYield: '35-40 quintals/acre'
+                    },
+                    rice: {
+                        growthStages: [
+                            { stage: 'Nursery', duration: '25-30 days', waterNeed: 'High' },
+                            { stage: 'Transplanting', duration: '15-20 days', waterNeed: 'Moderate' },
+                            { stage: 'Vegetative', duration: '40-45 days', waterNeed: 'High' },
+                            { stage: 'Reproductive', duration: '30-35 days', waterNeed: 'Critical' }
+                        ],
+                        expectedYield: '40-45 quintals/acre'
+                    }
+                };
+
+                // Generate weather forecast display
+                weatherForecast.innerHTML = monthlyWeather.map(month => `
+                    <div class="bg-white p-3 rounded-md text-center shadow-md">
+                        <div class="font-semibold text-blue-700">${month.month}</div>
+                        <div>Temp: ${month.avgTemp}°C</div>
+                        <div>Rainfall: ${month.rainfall} mm</div>
+                        <div>Humidity: ${month.humidity}%</div>
+                    </div>
+                `).join('');
+
+                // Generate irrigation recommendations
+                const irrigationRecommendation = `
+                    Irrigation Plan for ${crop.toUpperCase()}:
+                    - Early Months (Jan-Feb): Minimal irrigation, rely on residual moisture
+                    - Critical Months (Mar-Apr): Increase irrigation frequency
+                    - Peak Growth (May-Jun): Critical water management
+                    
+                    Water Management Tips:
+                    1. Use drip or sprinkler irrigation
+                    2. Water early morning or late evening
+                    3. Monitor soil moisture regularly
+                    4. Use mulching to retain moisture
+                `;
+                irrigationPlan.textContent = irrigationRecommendation;
+
+                // Generate crop growth prediction
+                const cropData = cropSpecificData[crop];
+                cropGrowthPrediction.innerHTML = cropData.growthStages.map(stage => `
+                    <div class="bg-white p-4 rounded-md shadow-md">
+                        <h3 class="font-bold text-blue-700">${stage.stage}</h3>
+                        <p>Duration: ${stage.duration}</p>
+                        <p>Water Need: ${stage.waterNeed}</p>
+                    </div>
+                `).join('') + `
+                    <div class="bg-blue-50 p-4 rounded-md col-span-full">
+                        <h3 class="font-bold text-blue-700">Expected Yield</h3>
+                        <p>${cropData.expectedYield}</p>
+                    </div>
+                `;
+
+                predictionResults.classList.remove('hidden');
+            }
+
+            predictBtn.addEventListener('click', () => {
+                const location = document.getElementById('location-input').value;
+                const crop = document.getElementById('crop-select').value;
+
+                if (location && crop) {
+                    generatePrediction(location, crop);
+                } else {
+                    alert('Please enter your location and select a crop');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

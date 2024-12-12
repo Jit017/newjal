@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Monitoring Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasi&family=Pixelify+Sans:wght@400..700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #ecf0f1;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab:hover, .tab.active {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+        }
+
+        .content-section {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Water Testing Kit Section */
+        .testing-kit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .kit-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .kit-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Reporting System */
+        #reportForm {
+            display: grid;
+            gap: 15px;
+        }
+
+        #reportForm input, 
+        #reportForm textarea, 
+        #reportForm select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        /* Interactive Water Map */
+        #waterMap {
+            width: 100%;
+            height: 500px;
+            background-color: #f1f1f1;
+            border: none; /* Remove dashed border */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <header style="background: linear-gradient(90deg, #ffffff, #038bfa); padding: 20px; color: rgb(3, 146, 249); display: flex; align-items: center; justify-content: space-between;">
+            <div class="logo" style="display: flex; align-items: center;">
+                <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo" style="height: 80px; margin-right: 15px;">
+                <h1 style="margin: 0; font-size: 1.5rem font;">Jal Sanjeevni</h1>
+            </div>
+            <nav>
+                <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 15px;">
+                    <li><a href="index.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Home</a></li>
+                    <li><a href="techniques copy.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Techniques</a></li>
+                    <li><a href="case-studies.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Case Studies</a></li>
+                    <li><a href="forum.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Forum</a></li>
+                    <li><a href="login.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Login</a></li>
+                    <li><a href="gallery.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Gallery</a></li>
+                    <li><a href="workshops.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Workshops</a></li>
+                    <li><a href="water-conservation-challenges.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Challenges</a></li>
+                    <li><a href="irrihelp.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Irrihelp</a></li>
+                    <li><a href="course.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Course</a></li>
+                    <li><a href="articles.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Article</a></li>
+                    <li><a href="bot.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">AI BOT</a></li>
+                    <li><a href="watertest.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">TEST</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="testing-kits">Water Testing Kits</div>
+        <div class="tab" data-tab="reporting">Reporting System</div>
+        <div class="tab" data-tab="water-map">Interactive Water Map</div>
+    </div>
+
+    <div class="container">
+        <!-- Water Testing Kits Section -->
+        <section id="testing-kits" class="content-section active">
+            <h2>Local Water Quality Monitoring Kits</h2>
+            <div class="testing-kit-grid">
+                <div class="kit-card">
+                    <i class="fas fa-vial fa-3x" style="color: var(--secondary-color);"></i>
+                    <h3>Basic Home Test Kit</h3>
+                    <p>Test for pH, chlorine, and basic contaminants</p>
+                    <button class="btn">Learn More</button>
+                </div>
+                <div class="kit-card">
+                    <i class="fas fa-flask fa-3x" style="color: var(--secondary-color);"></i>
+                    <h3>Advanced Water Analysis Kit</h3>
+                    <p>Comprehensive testing for heavy metals and pollutants</p>
+                    <button class="btn">Learn More</button>
+                </div>
+                <div class="kit-card">
+                    <i class="fas fa-tint fa-3x" style="color: var(--secondary-color);"></i>
+                    <h3>Portable Water Quality Meter</h3>
+                    <p>Real-time digital water quality measurements</p>
+                    <button class="btn">Learn More</button>
+                </div>
+                
+            </div>
+            
+        </section>
+
+        <!-- Reporting System Section -->
+        <section id="reporting" class="content-section">
+            <h2>Water Quality Issue Reporting</h2>
+            <form id="reportForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="text" placeholder="Location/Village" required>
+                <select required>
+                    <option value="">Select Water Source Type</option>
+                    <option value="river">River</option>
+                    <option value="well">Well</option>
+                    <option value="lake">Lake</option>
+                    <option value="groundwater">Groundwater</option>
+                </select>
+                <textarea placeholder="Describe the water quality issue" rows="5" required></textarea>
+                <input type="file" accept="image/*" placeholder="Upload Supporting Image">
+                <button type="submit" class="btn">Submit Report</button>
+            </form>
+        </section>
+
+        <!-- Interactive Water Map Section -->
+        <section id="water-map" class="content-section">
+            <h2>Water Resources Interactive Map</h2>
+            <div id="waterMap"></div>
+            <div class="map-legend">
+                <h3>Map Legend</h3>
+                <p>🔵 Safe Water Sources</p>
+                <p>🔴 Contaminated Water Sources</p>
+                <p>🟡 Moderate Risk Areas</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Tab Switching Logic
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+
+                // Add active class to clicked tab and corresponding section
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Form Submission Handler
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your report! We will investigate the water quality issue.');
+        });
+
+        // Initialize the map
+        const map = L.map('waterMap').setView([20.5937, 78.9629], 5); // Centered on India
+                // Add a tile layer to the map
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+        
+                // Sample data points for water quality
+                const waterData = [
+                    { coords: [28.6139, 77.209], type: 'safe', description: 'Clean water source' },
+                    { coords: [19.076, 72.8777], type: 'contaminated', description: 'High pollution levels detected' },
+                    { coords: [13.0827, 80.2707], type: 'moderate', description: 'Moderate risk area' },
+                ];
+        
+                // Add markers to the map
+                waterData.forEach(data => {
+                    let markerColor;
+                    switch (data.type) {
+                        case 'safe':
+                            markerColor = 'blue';
+                            break;
+                        case 'contaminated':
+                            markerColor = 'red';
+                            break;
+                        case 'moderate':
+                            markerColor = 'yellow';
+                            break;
+                        default:
+                            markerColor = 'gray';
+                    }
+        
+                    const marker = L.circleMarker(data.coords, {
+                        radius: 8,
+                        color: markerColor,
+                        fillColor: markerColor,
+                        fillOpacity: 0.7,
+                    }).addTo(map);
+        
+                    marker.bindPopup(`<strong>${data.type.toUpperCase()}:</strong> ${data.description}`);
+                });
+            </script>
+        </body>
+        </html>
+        

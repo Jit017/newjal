@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Jal Sanjeevni</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        .login-container {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: 40px auto;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #038bfa;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0277d7;
+        }
+
+        h2 {
+            text-align: center;
+            color: #038bfa;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        a {
+            color: #038bfa;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .google-login {
+            background-color: #4285F4;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .google-login:hover {
+            background-color: #2F6F9F;
+        }
+    </style>
+</head>
+<body>
+    <header style="background: linear-gradient(90deg, #ffffff, #038bfa); padding: 20px; color: rgb(3, 146, 249); display: flex; align-items: center; justify-content: space-between;">
+        <div class="logo" style="display: flex; align-items: center;">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo" style="height: 80px; margin-right: 15px;">
+            <h1 style="margin: 0; font-size: 1.5rem;">Jal Sanjeevni</h1>
+        </div>
+        <nav>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 15px;">
+                <li><a href="index.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Forum and Quiz</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Contact</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Gallery</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight ```html
+                <li><a href="workshops.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Workshops</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <div class="login-container">
+                    <h2>Login</h2>
+                    <form action="process_login.php" method="POST">
+                        <div class="input-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                    <br>
+                    <button class="google-login" onclick="window.location.href='https://accounts.google.com/o/oauth2/auth?redirect_uri=https://example.com&response_type=code&client_id=YOUR_CLIENT_ID&scope=profile email&access_type=offline'">Login with Google</button>
+                    <p>New user? <a href="survey.html">Take our survey to get started</a>.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h4>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</h4>
+    </footer>
+</body>
+</html>

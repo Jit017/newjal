@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Awareness Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f9fb;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        select, input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .resources {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9f7ff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .resources ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .resources li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Water Awareness Survey</h1>
+        <form id="surveyForm" onsubmit="return submitSurvey(event)">
+            <!-- Profession -->
+            <label for="profession">Your Profession:</label>
+            <input type="text" id="profession" name="profession" required>
+
+            <!-- Location -->
+            <label for="location">Your Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <!-- Primary Water Source -->
+            <label for="waterSource">What is your primary water source?</label>
+            <select id="waterSource" name="waterSource" required>
+                <option value="rainwater">Rainwater</option>
+                <option value="groundwater">Groundwater</option>
+                <option value="surfaceWater">Surface Water (Rivers, Lakes)</option>
+                <option value="municipalSupply">Municipal Supply</option>
+            </select>
+
+            <!-- Awareness of Water Techniques -->
+            <label for="waterTechniques">Are you aware of any water conservation techniques?</label>
+            <select id="waterTechniques" name="waterTechniques" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <!-- Primary Concerns Regarding Water -->
+            <label for="concerns">What are your primary concerns regarding water?</label>
+            <textarea id="concerns" name="concerns" required></textarea>
+
+            <!-- Interests Regarding Water -->
+            <label for="interests">What are you most interested in regarding water?</label>
+            <textarea id="interests" name="interests" required></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Survey</button>
+        </form>
+
+        <!-- Resources List (Initially hidden) -->
+        <div class="resources" id="resources">
+            <h2>Recommended Resources Based on Your Survey</h2>
+            <ul id="resourcesList"></ul>
+        </div>
+    </div>
+
+    <script>
+        function submitSurvey(event) {
+            event.preventDefault();
+
+            // Get the form values
+            const profession = document.getElementById('profession').value;
+            const location = document.getElementById('location').value;
+            const waterSource = document.getElementById('waterSource').value;
+            const waterTechniques = document.getElementById('waterTechniques').value;
+            const concerns = document.getElementById('concerns').value;
+            const interests = document.getElementById('interests').value;
+
+            // Prepare the resources list based on the responses
+            const resourcesList = document.getElementById('resourcesList');
+            resourcesList.innerHTML = ''; // Clear any existing content
+
+            // Initialize the resources array
+            let recommendedResources = [];
+
+            // Add resources based on responses
+            if (waterTechniques === "no") {
+                recommendedResources.push("Learn Water Conservation Techniques (Online Course)");
+            } else {
+                recommendedResources.push("Advanced Water Techniques Workshop");
+            }
+
+            if (concerns.includes("shortage") || concerns.includes("pollution")) {
+                recommendedResources.push("Water Conservation Solutions Article");
+                recommendedResources.push("Water Pollution Awareness Webinar");
+            }
+
+            if (interests.includes("courses") || interests.includes("learning")) {
+                recommendedResources.push("Water Conservation Courses");
+            }
+
+            if (waterSource === "rainwater") {
+                recommendedResources.push("Rainwater Harvesting Techniques");
+            } else if (waterSource === "groundwater") {
+                recommendedResources.push("Groundwater Management Workshop");
+            }
+
+            // Show the resources list
+            const resourcesSection = document.getElementById('resources');
+            resourcesSection.style.display = 'block';
+
+            // Display the recommended resources
+            recommendedResources.forEach(function(resource) {
+                const listItem = document.createElement('li');
+                listItem.textContent = resource;
+                resourcesList.appendChild(listItem);
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey - Jal Sanjeevni</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo">
+        </div>
+        <h1 class="jalTtitle">Audience Survey</h1>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2>Help Us Categorize You</h2>
+                <form action="process_survey.php" method="POST">
+                    <label for="profession">Your Profession:</label>
+                    <select id="profession" name="profession">
+                        <option value="student">Student</option>
+                        <option value="engineer">Engineer</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="farmer">Farmer</option>
+                        <option value="homemaker">Homemaker</option>
+                        <option value="business_owner">Business Owner</option>
+                        <option value="government_official">Government Official</option>
+                        <option value="researcher">Researcher</option>
+                        <option value="other">Other (Specify):</option> 
+                    </select>
+                    <br><br>
+
+                    <label for="location">Living Destination:</label>
+                    <input type="text" id="location" name="location" placeholder="Enter your city or village" required>
+                    <br><br>
+
+                    <label for="water-source">Primary Water Source:</label>
+                    <select id="water-source" name="water-source">
+                        <option value="municipal_supply">Municipal Supply</option>
+                        <option value="borewell">Borewell</option>
+                        <option value="well">Well</option>
+                        <option value="river/stream">River/Stream</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <br><br>
+
+                    <label for="water-awareness">Do you actively practice water-saving techniques?</label>
+                    <select id="water-awareness" name="water-awareness">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="sometimes">Sometimes</option>
+                    </select>
+                    <br><br>
+
+                    <label for="water-concerns">What are your primary concerns regarding water?</label>
+                    <select id="water-concerns" name="water-concerns" multiple>
+                        <option value="scarcity">Water Scarcity</option>
+                        <option value="pollution">Water Pollution</option>
+                        <option value="quality">Water Quality</option>
+                        <option value="access">Access to Clean Water</option>
+                        <option value="cost">Rising Water Costs</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <br><br>
+
+                    <label for="interest-areas">What are your primary areas of interest regarding water?</label>
+                    <select id="interest-areas" name="interest-areas" multiple>
+                        <option value="household_tips">Household Water Saving Tips</option>
+                        <option value="agriculture">Agricultural Water Management</option>
+                        <option value="industry">Industrial Water Conservation</option>
+                        <option value="policy">Water Policy and Legislation</option>
+                        <option value="technology">Water Technologies</option>
+                        <option value="research">Water Research</option>
+                    </select>
+                    <br><br>
+
+                    <button type="submit">Submit Survey</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h4>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</h4>
+    </footer>
+</body>
+</html> -->

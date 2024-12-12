@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOS Alert System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+
+        header {
+            background-color: #038bfa;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .alert-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .alert {
+            display: none;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .alert.flood {
+            background-color: #ff6666;
+            color: white;
+        }
+
+        .alert.rainfall {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        .alert.groundwater {
+            background-color: #66ccff;
+            color: black;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button.flood {
+            background-color: #ff6666;
+            color: white;
+        }
+
+        button.rainfall {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        button.groundwater {
+            background-color: #66ccff;
+            color: black;
+        }
+
+        footer {
+            background-color: #0066cc;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SOS Alert System</h1>
+    </header>
+
+    <div class="alert-container">
+        <div id="floodAlert" class="alert flood">🚨 Flood Alert: Heavy flooding expected in your area. Stay safe and move to higher ground immediately!</div>
+        <div id="rainfallAlert" class="alert rainfall">☔ Heavy Rainfall Alert: Intense rainfall is predicted. Ensure proper drainage and stay indoors!</div>
+        <div id="groundwaterAlert" class="alert groundwater">💧 Low Groundwater Level Alert: Groundwater levels are critically low. Conserve water and prepare accordingly!</div>
+    </div>
+
+    <div class="button-container">
+        <button class="flood" onclick="showAlert('flood')">Trigger Flood Alert</button>
+        <button class="rainfall" onclick="showAlert('rainfall')">Trigger Rainfall Alert</button>
+        <button class="groundwater" onclick="showAlert('groundwater')">Trigger Groundwater Alert</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Jal Sanjeevni - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function showAlert(type) {
+            const alerts = document.querySelectorAll('.alert');
+
+            // Hide all alerts first
+            alerts.forEach(alert => alert.style.display = 'none');
+
+            // Show the selected alert
+            const alert = document.getElementById(`${type}Alert`);
+            if (alert) {
+                alert.style.display = 'block';
+
+                // Automatically hide the alert after 10 seconds
+                setTimeout(() => {
+                    alert.style.display = 'none';
+                }, 10000);
+            }
+        }
+    </script>
+</body>
+</html>

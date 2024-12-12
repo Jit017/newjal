@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Conservation Challenges</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header style="background: linear-gradient(90deg, #ffffff, #038bfa); padding: 20px; color: rgb(3, 146, 249); display: flex; align-items: center; justify-content: space-between;">
+        <div class="logo" style="display: flex; align-items: center;">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo" style="height: 80px; margin-right: 15px;">
+            <h1 style="margin: 0; font-size: 1.5rem;">Jal Sanjeevni</h1>
+        </div>
+        <nav>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 15px;">
+                <li><a href="index.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Techniques</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Workshops</a></li>
+                <li><a href="challenges.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Challenges</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Forum and Quiz</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Gallery</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2 class="section-heading">Water Conservation Challenges</h2>
+                <p>Participate in community-driven challenges and compete to save the most water!</p>
+                
+                <div class="challenge">
+                    <h3>Weekly Water Saving Challenge</h3>
+                    <p>Track your water usage for a week and see how much you can save. Top savers will be featured on our leaderboard and receive rewards!</p>
+                </div>
+
+                <div class="challenge">
+                    <h3>Community Clean-Up Challenge</h3>
+                    <p>Join your local community in cleaning up nearby water bodies and conserving water resources. The community that cleans up the most will be awarded!</p>
+                </div>
+                
+                <div class="leaderboard">
+                    <h3>Leaderboard</h3>
+                    <p>Check out the top savers in our water conservation challenges!</p>
+                    <div class="filter-container">
+                        <input type="text" id="search" placeholder="Search by name..." aria-label="Search by name">
+                    </div>
+                    <div class="sort-container">
+                        <select id="sort" aria-label="Sort leaderboard">
+                            <option value="desc">Sort by Water Saved (High to Low)</option>
+                            <option value="asc">Sort by Water Saved (Low to High)</option>
+                        </select>
+                    </div>
+                    <table id="leaderboard-list">
+                        <thead>
+                            <tr>
+                                <th>Name </th>
+                                <th>Water Saved (liters)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic content will be inserted here -->
+ </tbody>
+                    </table>
+                </div>
+
+                <div class="submission-form">
+                    <h3>Submit Your Water Savings</h3>
+                    <form id="submission-form">
+                        <input type="text" id="user-name" placeholder="Your Name" aria-label="Your Name" required>
+                        <input type="number" id="water-saved" placeholder="Water Saved (liters)" aria-label="Water Saved" required>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="redeem-section">
+                    <h3>Redeem Your Rewards</h3>
+                    <p>Congratulations on saving water! You can redeem your rewards here:</p>
+                    <form id="redeem-form">
+                        <input type="text" id="redeem-name" placeholder="Your Name" aria-label="Your Name" required>
+                        <input type="number" id="redeem-points" placeholder="Points to Redeem" aria-label="Points to Redeem" required>
+                        <button type="submit">Redeem</button>
+                    </form>
+                    <p>Available rewards:</p>
+                    <ul>
+                        <li>Gift Card for Eco-Friendly Products - 100 Points</li>
+                        <li>Discount on Water-Saving Devices - 200 Points</li>
+                        <li>Free Workshop Entry - 300 Points</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</p>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </footer>
+    <script src="challenges.js"></script>
+</body>
+</html>

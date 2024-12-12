@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water-Saving Techniques</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo">
+        </div>
+        <h1 class="jalTtitle">Jal Saanjeevni</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="pixelify-sans-navbar">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar">Forum and Quiz</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar">Contact</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar">Gallery</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar">Workshops</a></li> <!-- New page link -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2 class="section-heading">Water-Saving Techniques</h2>
+                <h3>Explore innovative methods and valuabe techniques to conserve water in agriculture, industry, and daily life.</h3>
+                <div class="techniques-flexbox">
+                    <div class="technique">
+                        <h3>Drip Irrigation</h3>
+                        <img src="https://i.pinimg.com/736x/b9/b3/41/b9b341e362d8e17a03eccc975eeedfdd.jpg" alt="Drip Irrigation">
+                        <p>Drip irrigation is an efficient method of watering crops by directly watering plant.</p>
+                    </div>
+        
+                    <div class="technique">
+                        <h3>Rainwater Harvesting</h3>
+                        <br>
+                        <img src="https://media.licdn.com/dms/image/D5612AQHKRrrymMDdvA/article-cover_image-shrink_600_2000/0/1694923183158?e=2147483647&v=beta&t=rbJ0L19gE7UaQlkxA61Qoa8yBjHeMPEgvymaVcslmU8" alt="Rainwater Harvesting">
+                        <p>Collect and store rainwater for use in irrigation, reducing reliance on groundwater and other sources.</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        </section>
+        
+
+        <br>
+
+        <!-- Water Footprint Calculator Section -->
+        <section>
+            <div class="container">
+                <h2 class="section-heading">Calculate Your Water Footprint</h2>
+                <form id="water-footprint-calculator">
+                    <label for="shower-time">How many minutes do you spend in the shower daily?</label>
+                    <input type="number" id="shower-time" name="shower-time" placeholder="Minutes" required>
+                    
+                    <label for="toilet-flushes">How many times do you flush the toilet daily?</label>
+                    <input type="number" id="toilet-flushes" name="toilet-flushes" placeholder="Times" required>
+
+                    <label for="water-usage">Other water usage (liters per day):</label>
+                    <input type="number" id="water-usage" name="water-usage" placeholder="Liters" required>
+
+                    <button id="beauty" type="button" onclick="calculateWaterFootprint()">Calculate Footprint</button>
+                </form>
+                <p id="footprint-result"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</p>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script>
+            function calculateWaterFootprint() {
+                const showerTime = document.getElementById('shower-time').value;
+                const toiletFlushes = document.getElementById('toilet-flushes').value;
+                const otherWaterUsage = document.getElementById('water-usage').value;
+
+                const showerWater = showerTime * 9; // 9 liters per minute
+                const toiletWater = toiletFlushes * 6; // 6 liters per flush
+                const totalWaterUsage = parseFloat(showerWater) + parseFloat(toiletWater) + parseFloat(otherWaterUsage);
+
+                document.getElementById('footprint-result').innerText = `Your daily water footprint is approximately ${totalWaterUsage} liters.`;
+            }
+        </script>
+    </footer>
+</body>
+</html>

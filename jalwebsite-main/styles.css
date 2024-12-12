@@ -1,0 +1,758 @@
+/* General Reset */
+body {
+    font-family: 'Pixelify Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #0c0c0c;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #333;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+.logo img {
+    height: 80px;
+    margin-right: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #0d19c3;
+    font-family: "Matemasie", sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #0d19c3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ffffff; /* White text on hover */
+    background-color: #03e9f4; /* Neon blue background for hover/active */
+}
+
+/* Container Styles */
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Heading Styles */
+h1, h2 {
+    color: #0d19c3;
+    text-align: center;
+    margin-top: 0;
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p {
+    color: #242323;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+/* Intro Text Styles */
+.intro-text {
+    color: rgb(255, 255, 255);
+    font-family: fantasy;
+    font-size: x-large;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    line-height: 1.5;
+}
+
+/* Explore Container Styles */
+.explore-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+    gap: 15px;
+    color: white;
+}
+
+.explore-container p {
+    font-family: fantasy;
+    font-size: 24px;
+}
+
+.explore-container button {
+    font-family: 'Silkscreen', cursive;
+    background-color: #0d19c3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.explore-container button:hover {
+    background-color: #083aa4;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    text-align: center;
+    color: #0d19c3;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Section Heading Styles */
+.section-heading {
+    font-family: 'Matemasie', sans-serif;
+    color: #0d 19c3;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2.5em;
+}
+
+/* Button Styles */
+button, input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1em;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+/* Image Styles */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+/* Section Styles */
+section {
+    padding: 0px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+section:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Techniques Flexbox Styles */
+.techniques-flexbox {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.technique {
+    flex: 1;
+    max-width: 48%;
+}
+
+.technique img {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.technique h3 {
+    color: #0d19c3;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.technique p {
+    text-align: center;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Forum Categories Styles */
+.forum-categories {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.forum-categories .category {
+    background-color: #f4f4f4;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+}
+
+.forum-categories .category h3 {
+    margin-top: 0;
+    color: #4CAF50;
+}
+
+.forum-categories .category p {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.forum-categories .category button {
+    margin-top: 10px;
+    background-color: #0d19c3;
+    color: white;
+}
+
+/* Quiz Section Styles */
+#quiz-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+#quiz-form .question {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+#quiz-form label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Chart Container Styles */
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    width: 90%;
+}
+
+.chart-container > div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+/* Google Translate Element Styles */
+#google_translate_element {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.goog-te-combo {
+    border: 2px solid #4CAF50;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .forum-categories .category {
+        width: 100%;
+    }
+
+    .chart-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .chart-container > div {
+        margin: 10px 0;
+    }
+}
+
+/* Pixelify Sans Font Class */
+.pixelify-sans-navbar {
+    font-family: "Pixelify Sans", sans-serif;
+ font-optical-sizing: auto;
+    font-weight: 400;
+}
+
+.silkscreen-regular {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Water Footprint Calculator Styles */
+#water-footprint-calculator {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+#water-footprint-calculator label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#water-footprint-calculator input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+#footprint-result {
+    font-size: 1.2em;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Volunteer Signup Form Styles */
+.volunteer-signup {
+    background-color: rgba(240, 240, 240, 0.9);
+    border: 2px solid #0d19c3;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.volunteer-signup h2 {
+    color: #0d19c3;
+    font-family: "Matemasie", sans-serif;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.signup-form label {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.signup-form input, .signup-form select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.signup-form button {
+    background-color: #0d19c3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1em;
+}
+
+.signup-form button:hover {
+    background-color: #3e8e41;
+}
+
+/* Workshop List Styles */
+.workshop-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.workshop {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.workshop h3 {
+    margin-top: 0;
+    color: #0d19c3;
+    font-family: "Matemasie", sans-serif;
+}
+
+.workshop p {
+    color: #333;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.workshop button {
+    background-color: #0d19c3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1em;
+}
+
+.workshop button:hover {
+    background-color: #3e8e41;
+}
+
+/* Profile Container Styles */
+.profile-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-container h2 {
+    font-size: 2.5em;
+    color: #0d19c3;
+    margin-bottom: 20px;
+}
+
+.badges, .shared-tips {
+    margin-top: 20px;
+}
+
+.follow-actions button {
+    background-color: #0d19c3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+
+
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Pixelify Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navbar Styling */
+nav {
+    background-colr: #ffffff; /* White background */
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    color: #000080; /* Dark navy for links */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ffffff; /* White text on hover */
+    background-color: #03e9f4; /* Neon blue background for hover/active */
+    text-decoration: none;
+}
+
+//* Redeem Page Styles */
+#redeem {
+    padding: 50px 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .redeem-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .redeem-heading {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 2.5rem;
+    color: #14279b;
+    margin-bottom: 10px;
+  }
+  
+  .redeem-description {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .redeem-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .redeem-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .redeem-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .reward-logo {
+    height: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .redeem-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #17c0eb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .redeem-btn:hover {
+    background: #0d6efd;
+  }
+  
+  .points {
+    font-weight: bold;
+    color: #28a745;
+    margin: 10px 0;
+  }
+  
+  /* Search Bar Styles */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px;
+    background: #f0f8ff;
+    border: 1px solid #d6e4f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-input {
+    width: 70%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .search-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: #0d6efd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background: #14279b;
+  }
+  
+  .search-container:focus-within {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+  }
+  .search-container {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .search-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Article Section Styles */
+.articles-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.article {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #0d19c3;
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.article img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.article h3 {
+    font-size: 1.5em;
+    color: #0d19c3;
+    margin-bottom: 10px;
+}
+
+.article p {
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.article .read-more-btn {
+    background-color: #0d19c3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.article .read-more-btn:hover {
+    background-color: #083aa4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .article {
+        width: 100%;
+    }
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jal Saanjeevni - Water Conservation Course</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles/course-enhanced.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    .bg-primary {
+      background-color: #0072C6;
+    }
+    .text-primary {
+      color: #0072C6;
+    }
+    .hover-highlight:hover {
+      background-color: #F0F4F8;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="bg-primary text-white py-4 px-6 flex justify-between items-center">
+    <div class="flex items-center logo">
+      <img src="jal_sanjeevni_logo.png" alt="Jal Saanjeevni Logo" class="h-10 mr-4">
+      <h1 class="text-xl font-bold jalTtitle">Jal Saanjeevni</h1>
+    </div>
+    <nav class="flex space-x-6 items-center">
+      <a href="index.html" class="hover:text-gray-300 ">Home</a>
+      <a href="#" class="hover:text-gray-300">Courses</a>
+      <a href="#" class="hover:text-gray-300">My Learning</a>
+      <a href="#" class="bg-white text-primary px-4 py-2 rounded-md font-semibold">Login</a>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb & Course Overview -->
+  <div class="bg-white shadow-sm">
+    <div class="container mx-auto px-6 py-4">
+      <nav class="text-gray-600 mb-4">
+        Home > Courses > Water Conservation
+      </nav>
+      <div class="flex justify-between items-center">
+        <h2 class="text-3xl font-bold text-primary">Water Conservation Techniques</h2>
+        <div class="flex items-center">
+          <img src="instructor-profile.jpg" alt="Instructor" class="w-12 h-12 rounded-full mr-3">
+          <div>
+            <p class="font-semibold">John Doe</p>
+            <p class="text-sm text-gray-600">Environmental Specialist</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-6 py-8 flex">
+    <!-- Course Sidebar -->
+    <aside class="w-1/4 pr-8">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h3 class="text-xl font-semibold mb-4">Course Curriculum</h3>
+        
+        <div class="mb-6">
+          <div class="flex justify-between mb-2">
+            <span>Course Progress</span>
+            <span class="text-primary">30%</span>
+          </div>
+          <div class="bg-gray-200 rounded-full h-2.5">
+            <div class="bg-primary h-2.5 rounded-full" style="width: 30%"></div>
+          </div>
+        </div>
+
+        <ul>
+          <li class="mb-4">
+            <div class="flex justify-between items-center hover-highlight p-3 rounded-md">
+              <span class="font-medium">Introduction to Water Conservation</span>
+              <i class="fas fa-play-circle text-primary"></i>
+            </div>
+            <ul class="pl-4 mt-2">
+              <li class="mb-2">
+                <button class="text-left w-full hover-highlight p-2 rounded-md">
+                  Why Save Water?
+                </button>
+              </li>
+              <li>
+                <button class="text-left w-full hover-highlight p-2 rounded-md">
+                  Global Water Crisis
+                </button>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="flex justify-between items-center hover-highlight p-3 rounded-md">
+              <span class="font-medium">Rainwater Harvesting</span>
+              <i class="fas fa-lock text-gray-400"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Course Content -->
+    <main class="w-3/4">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe 
+            src="https://www.youtube.com/embed/E6pjj2gVnWA" 
+            title="Water Conservation Video" 
+            frameborder="0" 
+            allowfullscreen 
+            class="w-full h-full"
+          ></iframe>
+        </div>
+        
+        <div class="p-6">
+          <h2 class="text-2xl font-bold mb-4">Why Save Water?</h2>
+          <p class="text-gray-700 mb-4">
+            Explore the critical importance of water conservation and its global impact on environmental sustainability.
+          </p>
+
+          <div class="bg-blue-50 border-l-4 border-primary p-4 mb-6">
+            <h3 class="font-semibold mb-2">Learning Objectives</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>Understand the global water scarcity challenge</li>
+              <li>Learn practical water conservation techniques</li>
+              <li>Develop sustainable water management skills</li>
+            </ul>
+          </div>
+
+          <!-- Interactive Quiz -->
+          <div class="bg-gray-100 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4">Quick Knowledge Check</h3>
+            <p class="mb-4">What percentage of Earth's water is freshwater?</p>
+            <div class="grid grid-cols-2 gap-4">
+              <button class="bg-white border rounded-md p-3 hover:bg-gray-100 transition">10%</button>
+              <button class="bg-white border rounded-md p-3 hover:bg-gray-100 transition">2.5%</button>
+              <button class="bg-white border rounded-md p-3 hover:bg-gray-100 transition">50%</button>
+              <button class="bg-white border rounded-md p-3 hover:bg-gray-100 transition">1%</button>
+            </div>
+          </div>
+
+          <!-- Resources -->
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold mb-4">Additional Resources</h3>
+            <div class="grid grid-cols-3 gap-4">
+              <a href="#" class="bg-gray-100 p-4 rounded-lg text-center hover:bg-gray-200 transition">
+                <i class="fas fa-file-pdf text-2xl mb-2 block text-red-500"></i>
+                Lecture Notes
+              </a>
+              <a href="#" class="bg-gray-100 p-4 rounded-lg text-center hover:bg-gray-200 transition">
+                <i class="fas fa-code text-2xl mb-2 block text-green-500"></i>
+                Code Examples
+              </a>
+              <a href="#" class="bg-gray-100 p-4 rounded-lg text-center hover:bg-gray-200 transition">
+                <i class="fas fa-book text-2xl mb-2 block text-blue-500"></i>
+                Case Studies
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Community Discussion -->
+      <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-4">Community Discussion</h3>
+        <div class="mb-4">
+          <textarea 
+            placeholder="Share your thoughts or ask a question..." 
+            class="w-full p-3 border rounded-lg mb-4"
+          ></textarea>
+          <button class="bg-primary text-white px-6 py-2 rounded-md hover:bg-blue-700">
+            Post Comment
+          </button>
+        </div>
+        <div>
+          <div class="bg-gray-100 p-4 rounded-lg mb-4">
+            <p><strong>Jane Doe</strong>: Fascinating lecture! Any tips for urban water conservation?</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <p><strong>Mark Smith</strong>: The quiz really opened my eyes to water scarcity!</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-6 text-center">
+      <p>&copy; 2024 Jal Saanjeevni. All Rights Reserved.</p>
+      <div class="mt-4 space-x-4">
+        <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+        <a href="#" class="hover:text-gray-300">Terms of Service</a>
+        <a href="#" class="hover:text-gray-300">Contact Us</a>
+      </div>
+    </div>
+    <script src="course-interactions.js"></script>
+    
+  </footer>
+
+</body>
+</html>

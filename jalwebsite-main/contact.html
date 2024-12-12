@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #4CAF50;
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            background: url('images/contact-bg.jpg') no-repeat center center/cover;
+            padding: 50px 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .contact-container h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .contact-container p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .contact-container input:focus,
+        .contact-container textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .contact-container input[type="submit"] {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        .contact-container input[type="submit"]:hover {
+            background: #45a049;
+        }
+        
+        .contact-container .info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-container .info a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-container .info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo">
+        </div>
+        <div class="container">
+            <h1 class="jalTtitle">Welcome to Jal Saanjevni</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="techniques.html">Techniques</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="workshops.html" class="pixelify-sans-navbar">Workshops</a></li> <!-- New page link -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Please fill out the form below to get in touch.</p>
+            
+            <form action="contact.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <input type="submit" value="Send Message">
+            </form>
+            
+            <div class="info">
+                <p>Or reach us at <a href="mailto:info@waterplatform.com">info@waterplatform.com</a></p>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Workshops and Webinars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; font-family: 'Matemasie', sans-serif;">
+
+    <!-- Header -->
+    <header style="background: linear-gradient(90deg, #ffffff, #038bfa); padding: 20px; color: rgb(3, 146, 249); display: flex; align-items: center; justify-content: space-between;">
+        <div class="logo" style="display: flex; align-items: center;">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo" style="height: 80px; margin-right: 15px;">
+            <h1 style="margin: 0; font-size: 1.5rem;">Jal Sanjeevni</h1>
+        </div>
+        <nav>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 15px;">
+                <li><a href="index.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Forum and Quiz</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Contact</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Gallery</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold; background-color: #007BFF;">Workshops</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2 class="section-heading">Virtual Workshops and Webinars</h2>
+                <p>Join our expert-led virtual workshops and webinars to learn innovative water conservation techniques.</p>
+
+                <div class="workshop-list" style="margin-bottom: 40px;">
+                    <div class="workshop" style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+                        <h3>Upcoming Workshop: Efficient Water Use in Agriculture</h3>
+                        <p>Date: 15th September 2024</p>
+                        <p>Expert: Dr. A. Sharma</p>
+                        <button onclick="register()" style="padding: 10px 20px; background: #00cc99; border: none; border-radius: 5px; color: white; cursor: pointer;">Register Now</button>
+                    </div>
+                    <div class="workshop" style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+                        <h3>Webinar: Water Conservation in Urban Areas</h3>
+                        <p>Date: 20th September 2024</p>
+                        <p>Expert: Ms. R. Gupta</p>
+                        <button onclick="register()" style="padding: 10px 20px; background: #00cc99; border: none; border-radius: 5px; color: white; cursor: pointer;">Register Now</button>
+                    </div>
+                    <!-- Add more workshops/webinars here -->
+                </div>
+
+                <!-- New Volunteer and Event Sign-Up Section -->
+                <div class="volunteer-signup">
+                    <h2 class="section-heading">Volunteer and Event Sign-Up</h2>
+                    <p>Get involved in local water conservation events, clean-up drives, or volunteer opportunities. Sign up below!</p>
+
+                    <form class="signup-form" action="submit_volunteer.php" method="POST" style="max-width: 600px; margin: 0 auto;">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+
+                        <label for="event">Event/Opportunity:</label>
+                        <select id="event" name="event" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                            <option value="cleanup_drive">Waterbody Cleanup Drive</option>
+                            <option value="tree_plantation">Tree Plantation Drive</option>
+                            <option value="awareness_campaign">Water Conservation Awareness Campaign</option>
+                        </select>
+
+                        <button type="submit" style="padding: 10px 20px; background: #00cc99; border: none; border-radius: 5px; color: white; cursor: pointer;">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: #0066cc; color: white; text-align: center; padding: 20px;">
+        <p>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</p>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </footer>
+
+    <script>
+        function register() {
+            alert("Thank you for registering! We will send you more details via email.");
+        }
+    </script>
+</body>
+</html>

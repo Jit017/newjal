@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Video Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <header>
+        <div class="logo">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo">
+        </div>
+        
+        <div class="container">
+            <h1 class="jalTtitle"> Jal Saanjeevni</h1>
+            
+          
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="pixelify-sans-navbar">Home</a></li>
+                    <li><a href="techniques.html" class="pixelify-sans-navbar">Techniques</a></li>
+                    <li><a href="case-studies.html" class="pixelify-sans-navbar">Case Studies</a></li>
+                    <li><a href="forum.html" class="pixelify-sans-navbar">Forum and Quiz</a></li>
+                    <li><a href="contact.html" class="pixelify-sans-navbar">Contact</a></li>
+                    <li><a href="gallery.html" class="pixelify-sans-navbar">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcdada;
+        }
+
+        .gallery-title {
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            color: #030367;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .filter-buttons button {
+            background-color: #4755f3;
+            color: rgb(249, 248, 248);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background 0.3s ease;
+        }
+
+        .filter-buttons button:hover {
+            background-color: #929191;
+        }
+
+
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+            max-width: 1800px;
+        
+        }
+
+        .gallery-box {
+            width: 100%;
+            background-color: #201f1f;
+            box-shadow: 0 4px 8px rgba(32, 31, 31, 0.758);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            color: #ca2727;
+            margin-bottom: 20px;
+        }
+
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            max-height: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item iframe {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            max-width: 500px;
+            max-height: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 65, 65, 0.2);
+        }
+
+        .gallery-item p {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 16px;
+            color: #a11919;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-item p:hover {
+            color: #4CAF50;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .divider {
+            width: 100%;
+            height: 3px;
+            background-color: #c52c1e;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery-title">Image and Video Gallery</div>
+
+
+    <div class="filter-buttons">
+        <button onclick="filterGallery('all')">All</button>
+        <button onclick="filterGallery('images')">Images</button>
+        <button onclick="filterGallery('videos')">Videos</button>
+    </div>
+
+
+    <div class="gallery-container">
+
+        <div class="gallery-box" id="imageBox">
+            <div class="section-title">Image Gallery</div>
+            <div class="gallery">
+                <div class="gallery-item img-gallery">
+                    <img src="images/img1.jpeg" alt="Image 1" onclick="openImgModal('images/img1.jpeg')">
+                    <p class="description" onclick="openImgModal('images/img1.jpeg')">Handpumps, the only source of relief</p>
+                </div>
+                <div class="gallery-item img-gallery">
+                    <img src="images/img2.jpeg" alt="Image 2" onclick="openImgModal('images/img2.jpeg')">
+                    <p class="description" onclick="openImgModal('images/img2.jpeg')">Barren land in a desert</p>
+                </div>
+                <div class="gallery-item img-gallery">
+                    <img src="images/img3.jpeg" alt="Image 3" onclick="openImgModal('images/img3.jpeg')">
+                    <p class="description" onclick="openImgModal('images/img3.jpeg')">Water pollution is still rampant</p>
+                </div>
+                <div class="gallery-item img-gallery">
+                    <img src="images/img4.jpeg" alt="Image 4" onclick="openImgModal('images/img4.jpeg')">
+                    <p class="description" onclick="openImgModal('images/img4.jpeg')">Drought hits hard the countryside</p>
+                </div>
+                <div class="gallery-item img-gallery">
+                    <img src="images/img5.jpeg" alt="Image 5" onclick="openImgModal('images/img5.jpeg')">
+                    <p class="description" onclick="openImgModal('images/img5.jpeg')">Women collecting water from well</p>
+                </div>
+                <div class="gallery-item img-gallery">
+                    <img src="images/img6.jpeg" alt="Image 6" onclick="openImgModal('images/img6.jpeg')">
+                    <p class="description" onclick="openImgModal('images/img6.jpeg')">Protest due to water shortage</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="gallery-box" id="videoBox">
+            <div class="section-title">Video Gallery</div>
+            <div class="gallery">
+                <div class="gallery-item video-gallery">
+                    <iframe id="video1" src="https://www.youtube.com/embed/E6pjj2gVnWA" frameborder="0" allowfullscreen></iframe>
+                    <p class="description" onclick="openVideo('video1', 'https://www.youtube.com/embed/E6pjj2gVnWA')">What is Water Scarcity, you ask?</p>
+                </div>
+                <div class="gallery-item video-gallery">
+                    <iframe id="video3" src="https://www.youtube.com/embed/uxUhsy6oVmU?si=n_pH55LWBWAhPlTd" frameborder="0" allowfullscreen></iframe>
+                    <p class="description" onclick="openVideo('video3', 'https://www.youtube.com/embed/uxUhsy6oVmU?si=n_pH55LWBWAhPlTd')">Curious about the situtaion in India?</p>
+                </div>
+                <div class="gallery-item video-gallery">
+                    <iframe id="video6" src="https://www.youtube.com/embed/zBKGxuxFn1E?si=HRfr2TkigAR8AiQc" frameborder="0" allowfullscreen></iframe>
+                    <p class="description" onclick="openVideo('video6', 'https://www.youtube.com/embed/zBKGxuxFn1E?si=HRfr2TkigAR8AiQc')">Does water Pollution has a role in it?</p>
+                </div>
+                <div class="gallery-item video-gallery">
+                    <iframe id="video2" src="https://www.youtube.com/embed/MnTgx11eQ74?si=DTPfQwTlWGK9fQ3h" frameborder="0" allowfullscreen></iframe>
+                    <p class="description" onclick="openVideo('video2', 'https://www.youtube.com/embed/MnTgx11eQ74?si=DTPfQwTlWGK9fQ3h')">Curious! about How to solve it?</p>
+                </div>
+                
+                <div class="gallery-item video-gallery">
+                    <iframe id="video4" src="https://www.youtube.com/embed/oW-iuvCZnNA?si=99yBGstMgMjkOIUo" frameborder="0" allowfullscreen></iframe>
+                    <p class="description" onclick="openVideo('video4', 'https://www.youtube.com/embed/oW-iuvCZnNA?si=99yBGstMgMjkOIUo')">How to get started, you ask?</p>
+                </div>
+                <div class="gallery-item video-gallery">
+                    <iframe id="video5" src="https://www.youtube.com/embed/8tA3GnlaX18?si=qVK5hPNEG9bVpX9z" frameborder="0" allowfullscreen></iframe>
+                    <p class="description" onclick="openVideo('video5', 'https://www.youtube.com/embed/8tA3GnlaX18?si=qVK5hPNEG9bVpX9z')">here are some tips for you!</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="imgModal" class="modal" onclick="closeImgModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="imgModalContent">
+    </div>
+
+    <script>
+
+        function filterGallery(type) {
+            let imageBox = document.getElementById('imageBox');
+            let videoBox = document.getElementById('videoBox');
+
+            if (type === 'all') {
+                imageBox.style.display = 'block';
+                videoBox.style.display = 'block';
+            } else if (type === 'images') {
+                imageBox.style.display = 'block';
+                videoBox.style.display = 'none';
+            } else if (type === 'videos') {
+                imageBox.style.display = 'none';
+                videoBox.style.display = 'block';
+            }
+        }
+
+        function openImgModal(src) {
+            let modal = document.getElementById('imgModal');
+            let modalImg = document.getElementById('imgModalContent');
+            modal.style.display = 'flex';
+            modalImg.src = src;
+        }
+
+
+        function closeImgModal() {
+            document.getElementById('imgModal').style.display = 'none';
+        }
+
+        function openVideo(videoId, url) {
+            let video = document.getElementById(videoId);
+            video.src = url + '?autoplay=1';
+        }
+    </script>
+
+<footer>
+    <p>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</p>
+    
+    <div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</footer>
+</body>
+
+</html>

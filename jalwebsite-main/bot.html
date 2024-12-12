@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaterBot - Comprehensive Water Assistant</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'water-blue': '#3498db',
+                        'water-light': '#87CEEB'
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center text-water-blue mb-8">
+            JalSaanjeev - Comprehensive Water Assistant
+        </h1>
+        <div id="water-bot-container" class="flex justify-center"></div>
+    </div>
+
+    <script type="text/babel">
+        const knowledgeBase = {
+            Conservation: {
+                RainwaterHarvesting: {
+                    title: "Rainwater Harvesting",
+                    content: "Rainwater harvesting involves collecting and storing rain for reuse.",
+                    keywords: ["rain", "harvesting", "reuse"]
+                },
+                IrrigationTechniques: {
+                    title: "Efficient Irrigation Techniques",
+                    content: "Techniques like drip irrigation help save water.",
+                    keywords: ["irrigation", "drip"]
+                },
+                WaterConservationTips: {
+                    title: "Water Conservation Tips",
+                    content: "1. Fix leaks. 2. Use water-efficient fixtures. 3. Collect rainwater.",
+                    keywords: ["conservation", "tips", "efficient"]
+                }
+            },
+            WaterQuality: {
+                WQI: {
+                    title: "Water Quality Index (WQI) of Indian Cities",
+                    content: "Here are some WQI values for major Indian cities:\n- Delhi: 65 (Moderate)\n- Mumbai: 70 (Good)\n- Bangalore: 60 (Moderate)\n- Chennai: 55 (Moderate)\n- Kolkata: 75 (Good)",
+                    keywords: ["WQI", "water quality", "cities"]
+                },
+                WaterQualityParameters: {
+                    title: "Water Quality Parameters",
+                    content: "Key parameters include pH, turbidity, dissolved oxygen, and total dissolved solids.",
+                    keywords: ["water quality", "parameters", "pH", "turbidity"]
+                }
+            }
+        };
+
+        const processQuery = (query) => {
+            const tokens = query.toLowerCase().split(/\W+/);
+            let bestMatch = null;
+            let maxMatches = 0;
+
+            for (const category in knowledgeBase) {
+                for (const topic in knowledgeBase[category]) {
+                    const data = knowledgeBase[category][topic];
+                    let matches = 0;
+
+                    if (topic.toLowerCase() === query.toLowerCase()) {
+                        matches = 10; // Prioritize exact topic matches
+                    } else {
+                        matches = data.keywords.filter(keyword => tokens.includes(keyword)).length;
+                    }
+
+                    if (matches > maxMatches) {
+                        maxMatches = matches;
+                        bestMatch = data;
+                    }
+                }
+            }
+
+            if (bestMatch) {
+                return bestMatch;
+            } else {
+                // Check for partial matches within content
+                for (const category in knowledgeBase) {
+                    for (const topic in knowledgeBase[category]) {
+                        const data = knowledgeBase[category][topic];
+                        if (data.content.toLowerCase().includes(query.toLowerCase())) {
+                            return data;
+                        }
+                    }
+                }
+            }
+
+            return {
+                title: "Help",
+                content: "I couldn't find a specific answer. Try asking about irrigation, water quality, or conservation!",
+                keywords: []
+            };
+        };
+
+        const WaterBot = () => {
+            const [messages, setMessages] = React.useState([]);
+            const [input, setInput] = React.useState('');
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                if (!input.trim()) return;
+
+                const userMessage = { type: 'user', content : input };
+                const botResponse = processQuery(input);
+                const botMessage = { type: 'bot', content: `${botResponse.title}: ${botResponse.content}` };
+
+                setMessages([...messages, userMessage, botMessage]);
+                setInput('');
+            };
+
+            return (
+                <div className="bg-white shadow-lg rounded-lg w-full max-w-2xl">
+                    <div className="bg-water-blue text-white p-4 rounded-t-lg">
+                        <h2 className="text-xl font-bold">WaterBot</h2>
+                    </div>
+                    <div className="p-4 h-96 overflow-y-auto">
+                        {messages.map((message, index) => (
+                            <div key={index} className={`mb-4 ${message.type === 'user' ? 'text-right' : 'text-left'}`}>
+                                <div className={`inline-block p-3 rounded-lg ${message.type === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
+                                    {message.content}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <form onSubmit={handleSubmit} className="p-4 flex border-t">
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            placeholder="Ask about water conservation..."
+                            className="flex-1 p-2 border rounded-l-lg"
+                        />
+                        <button type="submit" className="bg-water-blue text-white p-2 rounded-r-lg">
+                            Send
+                        </button>
+                    </form>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<WaterBot />, document.getElementById('water-bot-container'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water-Saving Techniques</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&family=Pixelify+Sans:wght@400..700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    /* Tabs Section */
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .tab {
+        padding: 10px 20px;
+        border: 2px solid #007BFF;
+        background-color: white;
+        color: #007BFF;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .tab.active {
+        background-color: #007BFF;
+        color: white;
+    }
+
+    .tab:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+
+    .techniques-container {
+        display: none;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .techniques-container.active {
+        display: grid;
+    }
+
+    .technique-card {
+        background-color: white;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        text-align: center;
+        transition: transform 0.3s;
+    }
+
+    .technique-card img {
+        max-width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .technique-card:hover {
+        transform: scale(1.05);
+    }
+
+    /* Search Section */
+    .search-section {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    #search-bar {
+        width: 80%;
+        max-width: 500px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    /* Trending Section */
+    .trending-section {
+        margin-top: 40px;
+    }
+
+    .trending-section h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .trending-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .trending-article {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .trending-article img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .trending-article h3 {
+        font-size: 16px;
+        margin-top: 10px;
+        color: #333;
+    }
+
+    .trending-article p {
+        font-size: 13px;
+        color: #666;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .card img {
+            height: 150px;
+        }
+
+        .trending-article img {
+            height: 80px;
+        }
+    }
+</style>
+
+<body>
+    <!-- Header -->
+    <header style="background: linear-gradient(90deg, #ffffff, #038bfa); padding: 20px; color: rgb(3, 146, 249); display: flex; align-items: center; justify-content: space-between;">
+        <div class="logo" style="display: flex; align-items: center;">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo" style="height: 80px; margin-right: 15px;">
+            <h1 style="margin: 0; font-size: 1.5rem;">Jal Sanjeevni</h ```html
+            </h1>
+        </div>
+        <nav>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 15px;">
+                <li><a href="index.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold; background-color: #007BFF;">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Forum</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Gallery</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Contact</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Workshops</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Search Bar -->
+        <section class="search-section">
+            <input type="text" id="search-bar" placeholder="Search techniques or articles..." onkeyup="filterContent()">
+        </section>
+
+        <div class="container">
+            <!-- Techniques Section -->
+            <section>
+                <h2>Water-Saving Techniques</h2>
+                <div class="tabs">
+                    <div class="tab active" data-tab="agriculture">Agriculture</div>
+                    <div class="tab" data-tab="domestic">Domestic</div>
+                    <div class="tab" data-tab="industrial">Industrial</div>
+                    <div class="tab" data-tab="community">Community</div>
+                    <div class="tab" data-tab="urban">Urban</div>
+                </div>
+
+                <div class="techniques-container active" id="agriculture">
+                    <div class="technique-card">
+                        <img src="https://i.pinimg.com/736x/b9/b3/41/b9b341e362d8e17a03eccc975eeedfdd.jpg" alt="Drip Irrigation">
+                        <h3>Drip Irrigation</h3>
+                        <p>An efficient method of watering crops by directly targeting plant roots.</p>
+                    </div>
+                    <div class="technique-card">
+                        <img src="https://theoceangroup.co.in/wp-content/uploads/2024/05/Ocean-Rainwater-Harvester-diagram.jpg" alt="Rainwater Harvesting">
+                        <h3>Rainwater Harvesting</h3>
+                        <p>Store rainwater for irrigation and reduce dependency on groundwater.</p>
+                    </div>
+                    <div class="technique-card">
+                        <img src="https://example.com/soil-cover.jpg" alt="Mulching">
+                        <h3>Mulching</h3>
+                        <p>Cover soil with organic material to retain moisture and prevent evaporation.</p>
+                    </div>
+                </div>
+
+                <div class="techniques-container" id="domestic">
+                    <div class="technique-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ7nuHDLkZeEl9L0GFunMgjYW83Hrdshk7vg&s" alt="Greywater Recycling">
+                        <h3>Greywater Recycling</h3>
+                        <p>Reuse water from sinks and showers for non-potable purposes.</p>
+                    </div>
+                    <div class="technique-card">
+                        <img src="https://example.com/dual-flush.jpg" alt="Dual Flush Toilets">
+                        <h3>Dual Flush Toilets</h3>
+                        <p>Install dual flush toilets to reduce water usage per flush.</p>
+                    </div>
+                </div>
+
+                <div class="techniques-container" id="industrial">
+                    <div class="technique-card">
+                        <img src="https://example.com/water-efficient-machines.jpg" alt ="Water-Efficient Machines">
+                        <h3>Water-Efficient Machines</h3>
+                        <p>Utilize modern machinery that minimizes water consumption during industrial processes.</p>
+                    </div>
+                    <div class="technique-card">
+                        <img src="https://example.com/recycling-plants.jpg" alt="Water Recycling Plants">
+                        <h3>Water Recycling Plants</h3>
+                        <p>Install recycling plants to treat and reuse water in industrial applications.</p>
+                    </div>
+                </div>
+
+                <div class="techniques-container" id="community">
+                    <div class="technique-card">
+                        <img src="https://example.com/community-rain-harvesting.jpg" alt="Community Rain Harvesting">
+                        <h3>Community Rain Harvesting</h3>
+                        <p>Collaborate as a community to install shared rainwater harvesting systems.</p>
+                    </div>
+                    <div class="technique-card">
+                        <img src="https://example.com/awareness-campaigns.jpg" alt="Awareness Campaigns">
+                        <h3>Awareness Campaigns</h3>
+                        <p>Educate communities on water conservation through workshops and events.</p>
+                    </div>
+                </div>
+
+                <div class="techniques-container" id="urban">
+                    <div class="technique-card">
+                        <img src="https://example.com/green-roofs.jpg" alt="Green Roofs">
+                        <h3>Green Roofs</h3>
+                        <p>Install green roofs to manage urban water runoff and improve insulation.</p>
+                    </div>
+                    <div class="technique-card">
+                        <img src="https://example.com/smart-water-meters.jpg" alt="Smart Water Meters">
+                        <h3>Smart Water Meters</h3>
+                        <p>Implement smart water meters to monitor and control water usage in real time.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trending Section -->
+            <section class="trending-section">
+                <h2>Trending Articles</h2>
+                <div class="trending-grid">
+                    <div class="trending-article">
+                        <img src="https://example.com/trending-article-1.jpg" alt="Article 1">
+                        <h3>10 Ways to Save Water in Daily Life</h3>
+                        <p>Discover simple yet effective water-saving habits.</p>
+                    </div>
+                    <div class="trending-article">
+                        <img src="https://example.com/trending-article-2.jpg" alt="Article 2">
+                        <h3>Innovative Water Conservation Technologies</h3>
+                        <p>Learn about cutting-edge solutions for water conservation.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="calculator-section">
+                <div class="container">
+                    <h2 class="section-heading">Calculate Your Water Footprint</h2>
+                    <form id="water-footprint-calculator" class="calculator-form">
+                        <div class="form-group">
+                            <label for="shower-time">How many minutes do you spend in the shower daily?</label>
+                            <input type="number" id="shower-time" name="shower-time" min="0" placeholder="Minutes" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="toilet-flushes">How many times do you flush the toilet daily?</label>
+                            <input type="number" id="toilet-flushes" name="toilet-flushes" min="0" placeholder="Times" required>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="water-usage">Other water usage (liters per day):</label>
+                            <input type="number" id="water-usage" name="water-usage" min="0" placeholder="Liters" required>
+                        </div>
+    
+                        <button type="button" class="calculate-btn" onclick="calculateWaterFootprint()">Calculate Footprint</button>
+                    </form>
+                    <p id="footprint-result" class="result-text"></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jal Sanjeevni. All Rights Reserved.</p>
+        <nav>
+            <a href="terms.html">Terms of Use</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </nav>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const tabs = document.querySelectorAll(".tab");
+        const containers = document.querySelectorAll(".techniques-container");
+
+ ```html
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                containers.forEach(container => container.classList.remove("active"));
+                document.getElementById(tab.dataset.tab).classList.add("active");
+            });
+        });
+
+        function filterContent() {
+            const query = document.getElementById("search-bar").value.toLowerCase();
+            const cards = document.querySelectorAll(".technique-card, .trending-article");
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(query) ? "" : "none";
+            });
+        }
+    </script>
+</body>
+
+</html>

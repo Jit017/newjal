@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #cde6ec;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ddeefb;
+            padding: 10px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        header input {
+            padding: 5px;
+            font-size: 1em;
+            width: 200px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container button {
+            margin-left: 5px;
+            padding: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .main-container {
+            padding: 20px;
+        }
+
+        .section {
+            background-color: #fff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #d6f1ff, #b6e2fc);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stats-container .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            margin: 0;
+            font-size: 2em;
+            color: #0078d4;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        .health-advice {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .health-advice div {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .forecast {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 10px;
+        }
+
+        .forecast div {
+            padding: 10px;
+            background-color: #e9f7ff;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Water Quality Dashboard</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search city or river">
+            <button onclick="searchRivers()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="section stats-container">
+            <div class="stat">
+                <h3>400</h3>
+                <p>Water Quality Index (WQI)</p>
+            </div>
+            <div class="stat">
+                <h3>26.6</h3>
+                <p>Temperature (°C)</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Most Polluted Rivers in India</h2>
+            <table id="riverTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>River</th>
+                        <th>Location</th>
+                        <th>WQI</th>
+                        <th>Temperature (°C)</th>
+                        <th>DO</th>
+                    </tr>
+                </thead>
+                <tbody id="riverTableBody">
+                    <tr>
+                        <td>1</td>
+                        <td>Ganga</td>
+                        <td>Uttar Pradesh</td>
+                        <td>93</td>
+                        <td>25</td>
+                        <td>7.2</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Yamuna</td>
+                        <td>Delhi</td>
+                        <td>86</td>
+                        <td>26</td>
+                        <td>6.8</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Krishna</td>
+                        <td>Maharashtra</td>
+                        <td>48</td>
+                        <td>24</td>
+                        <td>7.5</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Godavari</td>
+                        <td>Maharashtra</td>
+                        <td>52</td>
+                        <td>23</td>
+                        <td>7.3</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Narmada</td>
+                        <td>Madhya Pradesh</td>
+                        <td>55</td>
+                        <td>22</td>
+                        <td>7.6</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Brahmaputra</td>
+                        <td>Assam</td>
+                        <td>42</td>
+                        <td>21</td>
+                        <td>8.0</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Cauvery</td>
+                        <td>Karnataka</td>
+                        <td>45</td>
+                        <td>25</td>
+                        <td>7.4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Health Advice</h2>
+            <div class="health-advice">
+                <div>
+                    <span style="font-size: 50px;">😷</span>
+                    <p>Wear Mask</p>
+                </div>
+                <div>
+                    <span style="font-size: 50px;">🏠</span>
+                    <p>Stay Indoor</p>
+                </div>
+                <div>
+                    <span style="font-size: 50px;">🪟</span>
+                    <p>Keep Windows Closed</p>
+                </div>
+                <div>
+                    <span style="font-size: 50px;">🏥</span>
+                    <p>Seek medical attention</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Water Quality Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>River</th>
+                        <th>Temperature (°C)</th>
+                        <th>DO</th>
+                        <th>BOD</th>
+                        <th>Nitrate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ganga</td>
+                        <td>25</td>
+                        <td>7.2</td>
+                        <td>3</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Yamuna</td>
+                        <td>26</td>
+                        <td>6.8</td>
+                        <td>4</td>
+                        <td>7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function searchRivers() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.getElementById('riverTableBody').getElementsByTagName('tr');
+            let foundResults = false;
+
+            for (let i = 0; i < rows.length; i++) {
+                const riverNameCell = rows[i].cells[1];
+                const locationCell = rows[i].cells[2];
+
+                if (
+                    riverNameCell.textContent.toLowerCase().includes(searchInput) || 
+                    locationCell.textContent.toLowerCase().includes(searchInput)
+                ) {
+                    rows[i].style.display = '';
+                    foundResults = true;
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+
+            const noResultsRow = document.getElementById('noResultsRow');
+            if (!foundResults) {
+                if (!noResultsRow) {
+                    const noResultsRow = document.createElement('tr');
+                    noResultsRow.id = 'noResultsRow';
+                    noResultsRow.innerHTML = `
+                        <td colspan="6" style="text-align:center; padding:20px; color:#888;">
+                            No rivers found matching "${searchInput}"
+                        </td>
+                    `;
+                    document.getElementById('riverTableBody').appendChild(noResultsRow);
+                }
+            } else if (noResultsRow) {
+                noResultsRow.remove();
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                searchRivers();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jal Sanjeevni User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #e6f2ff 0%, #b3d9ff 100%);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+    <div class="container mx-auto max-w-4xl bg-white shadow-2xl rounded-2xl overflow-hidden">
+        <!-- Header -->
+        <header class="bg-blue-600 text-white p-6 flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold">Jal Sanjeevni Profile</h1>
+                <p class="text-blue-100">Your Water Conservation Journey</p>
+            </div>
+            <img 
+                src="https://via.placeholder.com/100" 
+                alt="Jal Sanjeevni Logo" 
+                class="w-20 h-20 rounded-full border-4 border-white"
+            >
+        </header>
+
+        <!-- Profile Content -->
+        <div class="p-6 grid md:grid-cols-3 gap-6">
+            <!-- Profile Details -->
+            <div class="md:col-span-2 space-y-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <img 
+                            src="https://via.placeholder.com/80" 
+                            alt="Profile" 
+                            class="w-20 h-20 rounded-full border-4 border-blue-300"
+                        >
+                        <div id="profileDetails">
+                            <h2 class="text-2xl font-bold" id="userName">Water Guardian</h2>
+                            <p class="text-gray-600" id="userBio">Passionate about water conservation and sustainability</p>
+                        </div>
+                        <div id="profileEdit" class="hidden space-y-2">
+                            <input 
+                                id="editName"
+                                class="w-full px-2 py-1 border rounded"
+                                placeholder="Enter your name"
+                            >
+                            <textarea 
+                                id="editBio"
+                                class="w-full px-2 py-1 border rounded"
+                                placeholder="Tell us about yourself"
+                            ></textarea>
+                        </div>
+                    </div>
+                    <button 
+                        id="editProfileBtn"
+                        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition flex items-center"
+                    >
+                        Edit
+                    </button>
+                </div>
+
+                <!-- Statistics -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div class="text-2xl font-bold mt-2">10</div>
+                        <div class="text-sm text-gray-500">Challenges</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                        <div class="text-2xl font-bold mt-2">500L</div>
+                        <div class="text-sm text-gray-500">Water Saved</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                        </svg>
+                        <div class="text-2xl font-bold mt-2">15</div>
+                        <div class="text-sm text-gray-500">Tips Shared</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badges and Follow -->
+            <div class="space-y-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Your Badges</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Water Saver</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Eco Warrior</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Community Helper</span>
+                    </div>
+                </div>
+                <button 
+                    id="followBtn"
+                    class="w-full py-3 rounded-lg transition bg-blue-600 text-white hover:bg-blue-700 flex items-center justify-center"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    Follow
+                </button>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="bg-gray-50 p-6">
+            <div class="flex items-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+                <h3 class="text-xl font-semibold">Water Saving Tips</h3>
+            </div>
+            <div class="flex mb-4">
+                <input 
+                    id="newTipInput"
+                    placeholder="Share your water-saving tip..."
+                    class="flex-grow px-3 py-2 border rounded-l-lg"
+                >
+                <button 
+                    id="shareTipBtn"
+                    class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700"
+                >
+                    Share
+                </button>
+            </div>
+            <div id="tipsList" class="space-y-2">
+                <div class="bg-white p-3 rounded-lg shadow-sm flex items-center">
+                    <span class="flex-grow">Use a bucket instead of a running shower to save water</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </div>
+                <div class="bg-white p-3 rounded-lg shadow-sm flex items-center">
+                    <span class="flex-grow">Fix leaking taps immediately</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-blue-600 text-white p-4 text-center">
+            <p>©️ 2024 Jal Sanjeevni - Water Conservation Platform</p>
+        </footer>
+    </div>
+
+    <script>
+        // Profile Editing
+        const editProfileBtn = document.getElementById('editProfileBtn');
+        const profileDetails = document.getElementById('profileDetails');
+        const profileEdit = document.getElementById('profileEdit');
+        const userName = document.getElementById('userName');
+        const userBio = document.getElementById('userBio');
+        const editName = document.getElementById('editName');
+        const editBio = document.getElementById('editBio');
+
+        editProfileBtn.addEventListener('click', () => {
+            if (profileEdit.classList.contains('hidden')) {
+                // Switch to edit mode
+                editName.value = userName.textContent;
+                editBio.value = userBio.textContent;
+                profileDetails.classList.add('hidden');
+                profileEdit.classList.remove('hidden');
+                editProfileBtn.textContent = 'Save';
+            } else {
+                // Save changes
+                userName.textContent = editName.value || 'Water Guardian';
+                userBio.textContent = editBio.value || 'Passionate about water conservation and sustainability';
+                profileDetails.classList.remove('hidden');
+                profileEdit.classList.add('hidden');
+                editProfileBtn.textContent = 'Edit';
+            }
+        });
+
+        // Follow Button
+        const followBtn = document.getElementById('followBtn');
+        let isFollowing = false;
+
+        followBtn.addEventListener('click', () => {
+            isFollowing = !isFollowing;
+            if (isFollowing) {
+                followBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                followBtn.classList.add('bg-gray-200', 'text-gray-700');
+                followBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Following
+                `;
+            } else {
+                followBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                followBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                followBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                    Follow
+                `;
+            }
+        });
+
+        // Tips Sharing
+        const newTipInput = document.getElementById('newTipInput');
+        const shareTipBtn = document.getElementById('shareTipBtn');
+        const tipsList = document.getElementById('tipsList');
+
+        shareTipBtn.addEventListener('click', () => {
+            const tipText = newTipInput.value.trim();
+            if (tipText) {
+                const tipItem = document.createElement('div');
+                tipItem.className = 'bg-white p-3 rounded-lg shadow-sm flex items-center';
+                tipItem.innerHTML = `
+                    <span class="flex-grow">${tipText}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="
+                        // Enhanced JavaScript for Jal Sanjeevni User Profile
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Profile Editing
+    const editProfileBtn = document.getElementById('editProfileBtn');
+    const profileDetails = document.getElementById('profileDetails');
+    const profileEdit = document.getElementById('profileEdit');
+    const userName = document.getElementById('userName');
+    const userBio = document.getElementById('userBio');
+    const editName = document.getElementById('editName');
+    const editBio = document.getElementById('editBio');
+
+    // Enhanced Profile Editing with Validation
+    editProfileBtn.addEventListener('click', () => {
+        if (profileEdit.classList.contains('hidden')) {
+            // Switch to edit mode
+            editName.value = userName.textContent;
+            editBio.value = userBio.textContent;
+            profileDetails.classList.add('hidden');
+            profileEdit.classList.remove('hidden');
+            editProfileBtn.textContent = 'Save';
+            editName.focus(); // Focus on name input
+        } else {
+            // Save changes with validation
+            const newName = editName.value.trim() || 'Water Guardian';
+            const newBio = editBio.value.trim() || 'Passionate about water conservation and sustainability';
+
+            // Basic name length validation
+            if (newName.length < 2) {
+                alert('Name must be at least 2 characters long');
+                return;
+            }
+
+            // Basic bio length validation
+            if (newBio.length > 150) {
+                alert('Bio must be less than 150 characters');
+                return;
+            }
+
+            userName.textContent = newName;
+            userBio.textContent = newBio;
+            profileDetails.classList.remove('hidden');
+            profileEdit.classList.add('hidden');
+            editProfileBtn.textContent = 'Edit';
+        }
+    });
+
+    // Follow Button with State Persistence
+    const followBtn = document.getElementById('followBtn');
+    let isFollowing = false;
+
+    followBtn.addEventListener('click', () => {
+        isFollowing = !isFollowing;
+        updateFollowButtonState();
+    });
+
+    function updateFollowButtonState() {
+        if (isFollowing) {
+            followBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+            followBtn.classList.add('bg-gray-200', 'text-gray-700');
+            followBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Following
+            `;
+        } else {
+            followBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+            followBtn.classList.remove('bg-gray-200', 'text-gray-700');
+            followBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Follow
+            `;
+        }
+    }
+
+    // Tips Sharing with Enhanced Functionality
+    const newTipInput = document.getElementById('newTipInput');
+    const shareTipBtn = document.getElementById('shareTipBtn');
+    const tipsList = document.getElementById('tipsList');
+
+    // Load existing tips from local storage
+    function loadSavedTips() {
+        const savedTips = JSON.parse(localStorage.getItem('waterSavingTips') || '[]');
+        savedTips.forEach(tipText => addTipToList(tipText));
+    }
+
+    // Save tips to local storage
+    function saveTipsToLocalStorage() {
+        const currentTips = Array.from(tipsList.children)
+            .map(tip => tip.querySelector('span').textContent);
+        localStorage.setItem('waterSavingTips', JSON.stringify(currentTips));
+    }
+
+    // Add tip to the list
+    function addTipToList(tipText) {
+        const tipItem = document.createElement('div');
+        tipItem.className = 'bg-white p-3 rounded-lg shadow-sm flex items-center';
+        tipItem.innerHTML = `
+            <span class="flex-grow">${tipText}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 cursor-pointer remove-tip" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+        `;
+
+        // Add remove tip functionality
+        tipItem.querySelector('.remove-tip').addEventListener('click', () => {
+            tipsList.removeChild(tipItem);
+            saveTipsToLocalStorage();
+        });
+
+        tipsList.appendChild(tipItem);
+        saveTipsToLocalStorage();
+    }
+
+    // Share tip event listener
+    shareTipBtn.addEventListener('click', () => {
+        const tipText = newTipInput.value.trim();
+        if (tipText) {
+            // Validate tip length
+            if (tipText.length < 5) {
+                alert('Tip must be at least 5 characters long');
+                return;
+            }
+
+            if (tipText.length > 200) {
+                alert('Tip must be less than 200 characters');
+                return;
+            }
+
+            addTipToList(tipText);
+            newTipInput.value = ''; // Clear input
+        }
+    });
+
+    // Allow sharing tip with Enter key
+    newTipInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            shareTipBtn.click();
+        }
+    });
+
+    // Load saved tips on page load
+    loadSavedTips();
+});

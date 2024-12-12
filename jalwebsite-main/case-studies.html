@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Conservation Case Studies</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <script src="case-studies.js" defer></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            drawWQIChart();
+            drawAvailabilityVsDemandChart();
+        }
+
+        function drawWQIChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['State', 'WQI'],
+                ['Maharashtra', 76],
+                ['Gujarat', 82],
+                ['Rajasthan', 68],
+                ['Uttar Pradesh', 70],
+                ['West Bengal', 65],
+                ['Tamil Nadu', 80],
+                ['Karnataka', 75],
+                ['Madhya Pradesh', 72],
+                ['Andhra Pradesh', 78],
+                ['Punjab', 71]
+            ]);
+
+            var options = {
+                title: 'Water Quality Index (WQI) of Different States in India',
+                chartArea: {width: '50%'},
+                hAxis: {title: 'WQI', minValue: 0},
+                vAxis: {title: 'State'},
+                bars: 'horizontal',
+                colors: ['#76A7FA'],
+                backgroundColor: '#F5F5F5',
+                legend: {position: 'none'}
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('wqi_chart'));
+            chart.draw(data, options);
+        }
+
+        function drawAvailabilityVsDemandChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Water Availability (Billion Cubic Meters)');
+            data.addColumn('number', 'Water Demand (Billion Cubic Meters)');
+
+            data.addRows([
+                ['2020', 150, 120],
+                ['2021', 140, 130],
+                ['2022', 135, 145],
+                ['2023', 130, 150],
+                ['2024', 128, 160],
+                ['2025', 125, 170]
+            ]);
+
+            var options = {
+                title: 'Water Availability vs. Demand Over Time',
+                hAxis: {
+                    title: 'Year',
+                    textStyle: {color: '#333', fontSize: 12, bold: true},
+                    titleTextStyle: {color: '#4CAF50', fontSize: 14, bold: true}
+                },
+                vAxis: {
+                    title: 'Volume (Billion Cubic Meters)',
+                    minValue: 0,
+                    textStyle: {color: '#333', fontSize: 12, bold: true},
+                    titleTextStyle: {color: '#1E88E5', fontSize: 14, bold: true}
+                },
+                series: {
+                    0: {color: '#1E88E5', lineWidth: 3, pointSize: 5},
+                    1: {color: '#F4511E', lineWidth: 3, pointSize: 5, lineDashStyle: [4, 4]}
+                },
+                backgroundColor: '#F5F5F5',
+                legend: {position: 'top', alignment: 'center'},
+                titleTextStyle: {fontSize: 18, bold: true, color: '#333'},
+                chartArea: {width: '70%', height: '70%'}
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('availability_vs_demand_chart'));
+            chart.draw(data, options);
+        }
+    </script>
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px auto;
+            width: 90%;
+        }
+
+ ```html
+        .chart-container > div {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #8b52ed;
+        }
+
+        .section {
+            margin: 20px auto;
+            width: 90%;
+            background-color: #F5F5F5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <header style="background: linear-gradient(90deg, #ffffff, #038bfa); padding: 20px; color: rgb(3, 146, 249); display: flex; align-items: center; justify-content: space-between;">
+        <div class="logo" style="display: flex; align-items: center;">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo" style="height: 80px; margin-right: 15px;">
+            <h1 style="margin: 0; font-size: 1.5rem;">Jal Sanjeevni</h1>
+        </div>
+        <nav>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 15px;">
+                <li><a href="index.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold; background-color: #007BFF;">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Forum and Quiz</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Contact</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Gallery</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Workshops</a></li>
+                <li><a href="water-conservation-challenges.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Challenges</a></li>
+                <li><a href="profile.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Profile</a></li>
+                <li><a href="course.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Course</a></li>
+                <li><a href="articles.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Article</a></li>
+                <li><a href="bot.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">AI BOT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <h1>Water Quality Index (WQI) & Water Availability vs. Demand</h1>
+  
+            <div class="chart-container">
+                <div id="wqi_chart" style="height: 500px;"></div>
+                <div id="availability_vs_demand_chart" style="height: 500px;"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <section id="case-studies">
+                <h3 id="success">Successful Water Conservation Case Studies</h3>
+                <div id="case-study-content">
+                    <h3>Loading case studies from Wikipedia...</h3>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</p>
+            <div id="google_translate_element"></div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
